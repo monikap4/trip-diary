@@ -1,6 +1,6 @@
 # Trip Diary
 
-Trip Diary is a simple React application that allows users to interact with a counter. This starter app showcases a visually appealing button that increments a count each time it is clicked, demonstrating basic state management and component styling in React.
+Trip Diary is a React application for hiking enthusiasts to track and record their outdoor adventures. Users can create profiles, log hiking routes with statistics like distance and elevation, add personal notes and photos, and view comprehensive analytics of their hiking activities including total kilometers, elevation gained, and personal records.
 
 ## Prerequisites
 
