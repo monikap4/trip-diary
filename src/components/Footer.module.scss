@@ -1,0 +1,14 @@
+@use '../styles/globalStyles.scss' as *;
+
+.footer {
+  background-color: $color-primary;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1rem;
+  width: 100%;
+
+  @media (max-width: $screen-sm-min) {
+    display: none;
+  }
+}
