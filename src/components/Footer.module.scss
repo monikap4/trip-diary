@@ -1,12 +1,13 @@
 .footer {
-  background-color: $color-primary;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 1rem;
+  display: none;
   width: 100%;
+  padding: 1rem 0;
+  background-color: $color-primary;
+  color: $color-white;
+  text-align: center;
+  font-size: 1rem;
 
-  @media (max-width: $screen-sm-min) {
-    display: none;
+  @media (min-width: $screen-sm-min) {
+    display: block;
   }
 }

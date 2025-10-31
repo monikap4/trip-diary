@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 
+import { Row } from './Row';
 import logo from '../assets/images/logo.svg';
+import iconUser from '../assets/images/user-regular.svg';
 import style from './Header.module.scss';
 
 export const Header = () => (
@@ -28,10 +28,10 @@ export const Header = () => (
       </nav>
     </div>
 
-    <div className={style.headerContainerRight}>
+    <Row itemsCenter>
       <Link to="#" aria-label="Profil (brzy)">
-        <FontAwesomeIcon icon={faUser} className={style.iconUser} />
+        <img src={iconUser} alt="Přihlásit se" className={style.iconUser} />
       </Link>
-    </div>
+    </Row>
   </div>
 );

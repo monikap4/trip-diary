@@ -1,4 +1,4 @@
-const NewTrip = () => (
+export const NewTrip = () => (
   <div className="mainContainer">
     <h2>Přidat novou trasu</h2>
     <form>
@@ -16,5 +16,3 @@ const NewTrip = () => (
     </form>
   </div>
 );
-
-export default NewTrip;

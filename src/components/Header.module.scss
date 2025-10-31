@@ -1,12 +1,12 @@
 .headerContainer {
   padding: 16px;
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   background-color: $color-white;
 
-  @media (max-width: $screen-sm-min) {
-    display: none;
+  @media (min-width: $screen-sm-min) {
+    display: flex;
   }
 }
 
@@ -58,14 +58,10 @@
   }
 }
 
-.headerContainerRight {
-  display: flex;
-  align-items: center;
-}
-
 .iconUser {
   padding-right: 16px;
-  font-size: 1.5rem;
+  width: 50px;
+  height: auto;
   color: $color-text;
   transition: transform 0.2s ease-in-out;
 

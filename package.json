@@ -17,10 +17,7 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
-    "@fortawesome/free-regular-svg-icons": "^7.1.0",
-    "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@fortawesome/react-fontawesome": "^3.1.0",
+    "classnames": "^2.5.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4"
@@ -50,7 +47,11 @@
     "vite": "^7.1.7"
   },
   "lint-staged": {
-    "src/**/*.{js,ts?(x)}": ["yarn lint:fix"],
-    "src/**/*.{js,ts,tsx}": ["yarn format:fix"]
+    "src/**/*.{js,ts?(x)}": [
+      "yarn lint:fix"
+    ],
+    "src/**/*.{js,ts,tsx}": [
+      "yarn format:fix"
+    ]
   }
 }
