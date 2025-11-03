@@ -1,0 +1,71 @@
+.headerContainer {
+  padding: 16px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-white;
+
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+  }
+}
+
+.headerContainerLeft {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: $color-primary;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 65%;
+  height: auto;
+  object-fit: contain;
+}
+
+.rolloutNav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  .linkHome,
+  .linkTrips,
+  .linkAddTrip,
+  .linkStatistics {
+    color: $color-text;
+    text-decoration: none;
+    font-size: $font-size-base;
+    font-weight: 500;
+    transition:
+      transform 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.iconUser {
+  padding-right: 16px;
+  width: 50px;
+  height: auto;
+  color: $color-text;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

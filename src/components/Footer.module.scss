@@ -1,0 +1,13 @@
+.footer {
+  display: none;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: $color-primary;
+  color: $color-white;
+  text-align: center;
+  font-size: 1rem;
+
+  @media (min-width: $screen-sm-min) {
+    display: block;
+  }
+}

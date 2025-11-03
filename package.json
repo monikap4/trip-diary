@@ -17,8 +17,10 @@
     "node": ">=20.19.0"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -45,7 +47,11 @@
     "vite": "^7.1.7"
   },
   "lint-staged": {
-    "src/**/*.{js,ts?(x)}": ["yarn lint:fix"],
-    "src/**/*.{js,ts,tsx}": ["yarn format:fix"]
+    "src/**/*.{js,ts?(x)}": [
+      "yarn lint:fix"
+    ],
+    "src/**/*.{js,ts,tsx}": [
+      "yarn format:fix"
+    ]
   }
 }
