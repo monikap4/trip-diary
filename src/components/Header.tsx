@@ -6,25 +6,35 @@ import iconUser from '../assets/images/user-regular.svg';
 import style from './Header.module.scss';
 
 export const Header = () => (
-  <div className={style.headerContainer}>
+  <header className={style.headerContainer}>
     <div className={style.headerContainerLeft}>
       <Link to="/" className={style.circle}>
         <img src={logo} alt="Logo" className={style.logo} />
       </Link>
 
       <nav className={style.rolloutNav}>
-        <Link to="/" className={style.linkHome}>
-          Domů
-        </Link>
-        <Link to="/trips" className={style.linkTrips}>
-          Moje trasy
-        </Link>
-        <Link to="/new" className={style.linkAddTrip}>
-          Přidat trasu
-        </Link>
-        <Link to="/statistics" className={style.linkStatistics}>
-          Statistiky
-        </Link>
+        <ul className={style.navList}>
+          <li className={style.liHome}>
+            <Link to="/" className={style.linkHome}>
+              Domů
+            </Link>
+          </li>
+          <li className={style.liTrips}>
+            <Link to="/trips" className={style.linkTrips}>
+              Moje trasy
+            </Link>
+          </li>
+          <li className={style.liAddTrip}>
+            <Link to="/new" className={style.linkAddTrip}>
+              Přidat trasu
+            </Link>
+          </li>
+          <li className={style.liStatistics}>
+            <Link to="/statistics" className={style.linkStatistics}>
+              Statistiky
+            </Link>
+          </li>
+        </ul>
       </nav>
     </div>
 
@@ -33,5 +43,5 @@ export const Header = () => (
         <img src={iconUser} alt="Přihlásit se" className={style.iconUser} />
       </Link>
     </Row>
-  </div>
+  </header>
 );
