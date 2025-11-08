@@ -1,0 +1,74 @@
+.carousel {
+  position: relative;
+  width: min(100%, 1420px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollContainer {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 2rem 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    gap: 0.6rem;
+    padding: 0;
+  }
+}
+
+.arrow {
+  flex-shrink: 0;
+  border: none;
+  background: $color-white;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.left {
+  margin-right: 2rem;
+}
+
+.right {
+  margin-left: 2rem;
+}
+
+@media (max-width: $screen-sm-min) {
+  .arrow {
+    display: none;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .scrollContainer {
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+  }
+}

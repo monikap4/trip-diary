@@ -7,4 +7,9 @@
 .mainContent {
   flex: 1;
   padding: 2rem;
+
+  @media (max-width: $screen-sm-min) {
+    padding: 1rem;
+    padding-top: 2rem;
+  }
 }
