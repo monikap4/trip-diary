@@ -1,5 +1,5 @@
 export const NewTrip = () => (
-  <div className="mainContainer">
+  <div>
     <h2>Přidat novou trasu</h2>
     <form>
       <label>

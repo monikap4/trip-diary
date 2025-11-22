@@ -4,7 +4,7 @@ const trips = [
 ];
 
 export const MyTrips = () => (
-  <div className="mainContainer">
+  <div>
     <h2>Moje trasy</h2>
     {trips.length > 0 ? (
       <ul>

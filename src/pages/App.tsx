@@ -2,10 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { Home } from './Home/Home';
-import { MyTrips } from './MyTrips/MyTrips';
-import { NewTrip } from './NewTrip/NewTrip';
-import { Statistics } from './Statistics/Statistics';
+import { Home } from './Home';
+import { MyTrips } from './MyTrips';
+import { NewTrip } from './NewTrip';
+import { Statistics } from './Statistics';
 import style from './App.module.scss';
 
 const App = () => (
