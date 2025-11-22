@@ -5,13 +5,15 @@ $color-accent: #38b2ac;
 $color-text: #000;
 $color-text-light: #718096;
 $color-white: #ffffff;
-$color-border: #e2e8f0;
-$color-shadow: rgba(0, 0, 0, 0.15);
+$color-border: #d2d7dc;
+$color-border-hover: #edf2f8;
+$color-shadow: rgba(0, 0, 0, 0.12);
 
 // Typography
 $font-primary: 'Poppins', sans-serif;
 $font-size-base: 1rem; // 16px
-$font-size-lg: 1.25rem; // 20
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 2rem; // 32px
 $font-size-sm: 0.875rem;
 $font-size-xsm: 0.775rem;
 

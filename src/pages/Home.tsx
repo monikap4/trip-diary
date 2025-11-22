@@ -1,5 +1,5 @@
 import { TripCarousel } from '../components/TripCarousel';
-import { ButtonPrimary } from '../components/ButtonPrimary';
+import { Button } from '../components/Button';
 import { Row } from '../components/Row';
 import image1 from '../assets/images/foto-1.jpeg';
 import image2 from '../assets/images/foto-2.jpeg';
@@ -59,7 +59,7 @@ const trips = [
 export const Home = () => (
   <div>
     <Row itemsCenter>
-      <ButtonPrimary to="/new" label="Přidat trasu" iconSrc={plusIcon} />
+      <Button to="/new" label="Přidat trasu" iconSrc={plusIcon} />
     </Row>
     <h1 className={style.title}>Moje trasy</h1>
     <TripCarousel trips={trips} />

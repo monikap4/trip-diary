@@ -1,25 +1,36 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import style from './ButtonPrimary.module.scss';
+import style from './Button.module.scss';
 
-type ButtonPrimaryProps = {
+type BaseProps = {
   label: string;
-  to?: string;
-  onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   iconSrc?: string;
   iconPosition?: 'left' | 'right';
 };
 
-export const ButtonPrimary = ({
+type LinkButtonProps = BaseProps & {
+  to: string;
+  onClick?: () => void;
+};
+
+type ActionButtonProps = BaseProps & {
+  onClick: () => void;
+  to?: never;
+};
+
+type ButtonPrimaryProps = LinkButtonProps | ActionButtonProps;
+
+export const Button: React.FC<ButtonPrimaryProps> = ({
   label,
   to,
   onClick,
   type = 'button',
   iconSrc,
   iconPosition = 'right',
-}: ButtonPrimaryProps) => {
-  const content = (
+}) => {
+  const renderContent = (
     <>
       {iconSrc && iconPosition === 'left' && (
         <img src={iconSrc} alt="" className={style.icon} />
@@ -34,14 +45,14 @@ export const ButtonPrimary = ({
   if (to) {
     return (
       <Link to={to} className={style.button}>
-        {content}
+        {renderContent}
       </Link>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={style.button}>
-      {content}
+      {renderContent}
     </button>
   );
 };
