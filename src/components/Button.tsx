@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonPrimaryProps> = ({
   iconSrc,
   iconPosition = 'right',
 }) => {
-  const renderContent = (
+  const content = (
     <>
       {iconSrc && iconPosition === 'left' && (
         <img src={iconSrc} alt="" className={style.icon} />
@@ -45,14 +45,14 @@ export const Button: React.FC<ButtonPrimaryProps> = ({
   if (to) {
     return (
       <Link to={to} className={style.button}>
-        {renderContent}
+        {content}
       </Link>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={style.button}>
-      {renderContent}
+      {content}
     </button>
   );
 };
