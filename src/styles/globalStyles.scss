@@ -86,11 +86,18 @@ h6 {
   padding-bottom: 1rem;
 }
 
+h1 {
+  text-align: center;
+  padding-top: 1rem;
+  font-size: $font-size-lg;
+
+  @media (min-width: $screen-sm-min) {
+    padding-top: 0;
+    font-size: $font-size-xl;
+  }
+}
+
 #root,
 #__next {
   isolation: isolate;
-}
-
-.mainContainer {
-  padding: 2rem;
 }
