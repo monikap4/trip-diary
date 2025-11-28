@@ -1,0 +1,53 @@
+.statsSection {
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: $screen-sm-min) {
+    padding: 2rem 5.125rem;
+  }
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+
+  @media (min-width: $screen-sm-min) {
+    gap: 1rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc(50% - 0.25rem);
+  padding: 1rem 0.5rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  list-style: none;
+  background: $color-white;
+
+  @media (min-width: $screen-sm-min) {
+    flex: 0 0 calc(50% - 0.5rem);
+    padding: 2rem 1rem;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    flex: 0 0 calc(25% - 1rem);
+  }
+}
+
+.label {
+  margin-bottom: 0.4rem;
+  color: $color-primary;
+  font-size: $font-size-sm;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: $font-size-base;
+  }
+}

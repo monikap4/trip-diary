@@ -9,6 +9,7 @@ import image5 from '../assets/images/foto-5.jpeg';
 import image6 from '../assets/images/foto-6.jpeg';
 import image7 from '../assets/images/foto-7.jpeg';
 import plusIcon from '../assets/images/plus.svg';
+import { Statistics } from '../components/Statistics/Statistics';
 import style from './Home.module.scss';
 
 const trips = [
@@ -56,12 +57,21 @@ const trips = [
   },
 ];
 
+const stats = [
+  { id: '1', label: 'Počet tras', value: 15 },
+  { id: '2', label: 'Celková vzdálenost', value: 225, suffix: ' km' },
+  { id: '3', label: 'Celkové stoupání', value: 10456, suffix: ' km' },
+  { id: '4', label: 'Průměrná délka', value: 17, suffix: ' km' },
+];
+
 export const Home = () => (
   <div>
     <Row itemsCenter>
       <Button to="/new" label="Přidat trasu" iconSrc={plusIcon} />
     </Row>
-    <h1 className={style.title}>Moje trasy</h1>
+    <h2 className={style.title}>Moje trasy</h2>
     <TripCarousel trips={trips} />
+    <h2 className={style.title}>Statistiky</h2>
+    <Statistics stats={stats} />
   </div>
 );
