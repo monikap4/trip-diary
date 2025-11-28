@@ -51,13 +51,3 @@
     font-size: $font-size-base;
   }
 }
-
-.value {
-  color: $color-primary;
-  font-size: $font-size-lg;
-  font-weight: 600;
-
-  @media (min-width: $screen-sm-min) {
-    font-size: $font-size-xl;
-  }
-}

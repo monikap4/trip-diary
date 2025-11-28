@@ -1,7 +1,12 @@
 .title {
   margin-top: 0;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: $font-size-lg;
 
   @media (min-width: $screen-sm-min) {
     margin-top: 3rem;
+    padding-top: 0;
+    font-size: $font-size-xl;
   }
 }
