@@ -6,11 +6,13 @@ import { Home } from './Home';
 import { MyTrips } from './MyTrips';
 import { NewTrip } from './NewTrip';
 import { Statistics } from './Statistics';
+import { MobileNav } from '../components/MobileNav';
 import style from './App.module.scss';
 
 const App = () => (
   <div className={style.appWrapper}>
     <Header />
+
     <main className={style.mainContent}>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,6 +21,7 @@ const App = () => (
         <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </main>
+    <MobileNav />
     <Footer />
   </div>
 );

@@ -1,0 +1,108 @@
+.mobileNav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(250, 252, 254, 0.98)
+  );
+  border-top: 1px solid $color-border-light;
+  box-shadow: 0 -8px 24px $color-shadow-light;
+
+  padding: 0.5rem 0.75rem 0.5rem;
+}
+
+.list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 0.375rem;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.active {
+  filter: brightness(0) saturate(100%) invert(31%) sepia(97%) saturate(1822%)
+    hue-rotate(203deg) brightness(94%) contrast(92%);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.label {
+  font-size: 0.75rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: 0.125rem;
+  text-align: center;
+}
+
+.centerItem {
+  flex: 0 0 42px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: -1.75rem;
+
+  pointer-events: none;
+}
+
+.addButton {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50px;
+  background: $color-white;
+  box-shadow: 0 10px 22px $color-shadow;
+  border: 6px solid rgba(255, 255, 255, 0.95);
+  transform: translateY(-6px);
+  text-decoration: none;
+}
+
+.addIcon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.item .link,
+.centerItem .addButton {
+  min-height: 44px;
+}
+
+@media (min-width: $screen-sm-min) {
+  .mobileNav {
+    display: none;
+  }
+}
