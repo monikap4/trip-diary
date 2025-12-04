@@ -2,42 +2,54 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
-import HomeIcon from '../assets/images/home.svg';
-import TripsIcon from '../assets/images/map.svg';
-import AddIcon from '../assets/images/plus.svg';
-import StatsIcon from '../assets/images/stat.svg';
-import ProfileIcon from '../assets/images/user-mobile.svg';
+import addIcon from '../assets/images/plus.svg';
 import style from './MobileNav.module.scss';
 
 type NavItem = {
   to: string;
   label: string;
-  icon: React.FC<{ className?: string }>;
+  iconClassName: string;
   id: string;
 };
 
 const ITEMS: NavItem[] = [
-  { id: 'home', to: '/', label: 'Domů', icon: HomeIcon },
-  { id: 'trips', to: '/trips', label: 'Moje trasy', icon: TripsIcon },
-  { id: 'stats', to: '/statistics', label: 'Statistiky', icon: StatsIcon },
-  { id: 'profile', to: '/profile', label: 'Můj profil', icon: ProfileIcon },
+  { id: 'home', to: '/', label: 'Domů', iconClassName: style.homeIcon },
+  {
+    id: 'trips',
+    to: '/trips',
+    label: 'Moje trasy',
+    iconClassName: style.mapIcon,
+  },
+  {
+    id: 'stats',
+    to: '/statistics',
+    label: 'Statistiky',
+    iconClassName: style.statIcon,
+  },
+  {
+    id: 'profile',
+    to: '/profile',
+    label: 'Můj profil',
+    iconClassName: style.userMobileIcon,
+  },
 ];
 
 export const MobileNav: React.FC = () => (
   <nav className={style.mobileNav} aria-label="Hlavní navigace">
     <ul className={style.list}>
-      {ITEMS.slice(0, 2).map((it) => (
-        <li key={it.id} className={style.item}>
+      {ITEMS.slice(0, 2).map(({ id, to, iconClassName, label }) => (
+        <li key={id} className={style.item}>
           <NavLink
-            to={it.to}
+            to={to}
             className={({ isActive }) =>
               classnames(style.link, { [style.active]: isActive })
             }
           >
-            <div className={style.iconWrapper}>
-              <it.icon className={style.icon} aria-hidden="true" />
-            </div>
-            <span className={style.label}>{it.label}</span>
+            <div
+              className={classnames(style.icon, iconClassName)}
+              aria-hidden="true"
+            />
+            <span className={style.label}>{label}</span>
           </NavLink>
         </li>
       ))}
@@ -49,7 +61,7 @@ export const MobileNav: React.FC = () => (
           aria-label="Přidat trasu"
         >
           <img
-            src={AddIcon}
+            src={addIcon}
             alt=""
             aria-hidden="true"
             className={style.addIcon}
@@ -57,21 +69,19 @@ export const MobileNav: React.FC = () => (
         </NavLink>
       </li>
 
-      {ITEMS.slice(2).map((it) => (
-        <li key={it.id} className={style.item}>
+      {ITEMS.slice(2).map(({ id, to, iconClassName, label }) => (
+        <li key={id} className={style.item}>
           <NavLink
-            to={it.to}
+            to={to}
             className={({ isActive }) =>
               classnames(style.link, { [style.active]: isActive })
             }
           >
-            <img
-              src={it.icon}
-              alt=""
+            <div
+              className={classnames(style.icon, iconClassName)}
               aria-hidden="true"
-              className={style.icon}
             />
-            <span className={style.label}>{it.label}</span>
+            <span className={style.label}>{label}</span>
           </NavLink>
         </li>
       ))}

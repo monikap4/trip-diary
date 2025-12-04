@@ -45,15 +45,37 @@
   text-decoration: none;
 }
 
-.active {
-  filter: brightness(0) saturate(100%) invert(31%) sepia(97%) saturate(1822%)
-    hue-rotate(203deg) brightness(94%) contrast(92%);
+.homeIcon {
+  mask-image: url('../assets/images/home.svg');
 }
 
-.icon {
+.mapIcon {
+  mask-image: url('../assets/images/map.svg');
+}
+
+.statIcon {
+  mask-image: url('../assets/images/stat.svg');
+}
+
+.userMobileIcon {
+  mask-image: url('../assets/images/user-mobile.svg');
+}
+
+.icon,
+.icon:visited {
   width: 22px;
   height: 22px;
   display: block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: blue;
+}
+
+.active {
+  .icon {
+    background-color: red;
+  }
 }
 
 .label {
