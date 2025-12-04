@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import style from './Row.module.scss';
 
@@ -36,7 +36,7 @@ export const Row: React.FC<RowProps> = ({
 }) => (
   <div
     style={{ gap }}
-    className={classNames(
+    className={classnames(
       style.row,
       {
         [style.flexCol]: flexCol,

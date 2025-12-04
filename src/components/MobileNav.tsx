@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import classnames from 'classnames';
 
 import HomeIcon from '../assets/images/home.svg';
 import TripsIcon from '../assets/images/map.svg';
@@ -11,7 +12,7 @@ import style from './MobileNav.module.scss';
 type NavItem = {
   to: string;
   label: string;
-  icon: string;
+  icon: React.FC<{ className?: string }>;
   id: string;
 };
 
@@ -22,66 +23,58 @@ const ITEMS: NavItem[] = [
   { id: 'profile', to: '/profile', label: 'Můj profil', icon: ProfileIcon },
 ];
 
-export const MobileNav: React.FC = () => {
-  const location = useLocation();
+export const MobileNav: React.FC = () => (
+  <nav className={style.mobileNav} aria-label="Hlavní navigace">
+    <ul className={style.list}>
+      {ITEMS.slice(0, 2).map((it) => (
+        <li key={it.id} className={style.item}>
+          <NavLink
+            to={it.to}
+            className={({ isActive }) =>
+              classnames(style.link, { [style.active]: isActive })
+            }
+          >
+            <div className={style.iconWrapper}>
+              <it.icon className={style.icon} aria-hidden="true" />
+            </div>
+            <span className={style.label}>{it.label}</span>
+          </NavLink>
+        </li>
+      ))}
 
-  const isActive = (path: string) =>
-    path === '/'
-      ? location.pathname === '/'
-      : location.pathname.startsWith(path);
+      <li className={`${style.item} ${style.centerItem}`}>
+        <NavLink
+          to="/new"
+          className={style.addButton}
+          aria-label="Přidat trasu"
+        >
+          <img
+            src={AddIcon}
+            alt=""
+            aria-hidden="true"
+            className={style.addIcon}
+          />
+        </NavLink>
+      </li>
 
-  return (
-    <nav className={style.mobileNav} aria-label="Hlavní navigace">
-      <ul className={style.list}>
-        {ITEMS.slice(0, 2).map((it) => (
-          <li key={it.id} className={style.item}>
-            <Link
-              to={it.to}
-              className={`${style.link} ${isActive(it.to) ? style.active : ''}`}
-              aria-current={isActive(it.to) ? 'page' : undefined}
-            >
-              <div className={style.iconWrapper}>
-                <img
-                  src={it.icon}
-                  alt=""
-                  aria-hidden="true"
-                  className={style.icon}
-                />
-              </div>
-              <span className={style.label}>{it.label}</span>
-            </Link>
-          </li>
-        ))}
-
-        <li className={`${style.item} ${style.centerItem}`}>
-          <Link to="/new" className={style.addButton} aria-label="Přidat trasu">
+      {ITEMS.slice(2).map((it) => (
+        <li key={it.id} className={style.item}>
+          <NavLink
+            to={it.to}
+            className={({ isActive }) =>
+              classnames(style.link, { [style.active]: isActive })
+            }
+          >
             <img
-              src={AddIcon}
+              src={it.icon}
               alt=""
               aria-hidden="true"
-              className={style.addIcon}
+              className={style.icon}
             />
-          </Link>
+            <span className={style.label}>{it.label}</span>
+          </NavLink>
         </li>
-
-        {ITEMS.slice(2).map((it) => (
-          <li key={it.id} className={style.item}>
-            <Link
-              to={it.to}
-              className={`${style.link} ${isActive(it.to) ? style.active : ''}`}
-              aria-current={isActive(it.to) ? 'page' : undefined}
-            >
-              <img
-                src={it.icon}
-                alt=""
-                aria-hidden="true"
-                className={style.icon}
-              />
-              <span className={style.label}>{it.label}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
+      ))}
+    </ul>
+  </nav>
+);
