@@ -34,6 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: $color-primary;
 }
 
 .link {
@@ -69,21 +70,24 @@
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  background-color: blue;
-}
-
-.active {
-  .icon {
-    background-color: red;
-  }
+  background-color: $color-text-secondary;
 }
 
 .label {
   font-size: 0.75rem;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.55);
   margin-top: 0.125rem;
   text-align: center;
+  color: $color-text-secondary;
+}
+
+.active {
+  .label {
+    color: $color-icon-hover;
+  }
+  .icon {
+    background-color: $color-icon-hover;
+  }
 }
 
 .centerItem {

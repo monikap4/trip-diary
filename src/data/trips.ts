@@ -52,4 +52,5 @@ export const trips: Trip[] = [
   },
 ];
 
-export const getTripById = (id: string): Trip | undefined => trips.find((trip) => trip.id === id);
+export const getTripById = (id: string): Trip | undefined =>
+  trips.find((trip) => trip.id === id);
