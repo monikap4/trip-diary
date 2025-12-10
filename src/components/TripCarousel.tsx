@@ -39,8 +39,13 @@ export const TripCarousel: React.FC<TripCarouselProps> = ({ trips }) => {
       </button>
 
       <ul ref={scrollContainerRef} className={style.scrollContainer}>
-        {trips.map((trip) => (
-          <TripCardVertical key={trip.id} {...trip} />
+        {trips.map(({ id, image, name, location }) => (
+          <TripCardVertical
+            key={id}
+            image={image}
+            name={name}
+            location={location}
+          />
         ))}
       </ul>
 

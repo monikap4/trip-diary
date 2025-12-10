@@ -3,4 +3,7 @@ export type Trip = {
   name: string;
   image: string;
   location: string;
+  description?: string;
+  mapUrl?: string;
+  extraImages?: string[];
 };

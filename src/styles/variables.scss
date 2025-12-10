@@ -1,6 +1,7 @@
 // Colors
 $color-primary: #000;
 $color-secondary: #d2d7dc;
+$color-light: #a6a6a6;
 $color-accent: #38b2ac;
 $color-text: #000;
 $color-text-secondary: #5e5e5e;
@@ -15,8 +16,10 @@ $color-icon-hover: #094ff1;
 // Typography
 $font-primary: 'Poppins', sans-serif;
 $font-size-base: 1rem; // 16px
+$font-size-md: 1.125rem; // 18px
 $font-size-lg: 1.25rem; // 20px
-$font-size-xl: 2rem; // 32px
+$font-size-xl: 1.5rem; // 24px
+$font-size-xxl: 2rem; // 32px
 $font-size-sm: 0.875rem;
 $font-size-xsm: 0.775rem;
 
