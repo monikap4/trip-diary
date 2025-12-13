@@ -6,6 +6,7 @@ import image4 from '../assets/images/foto-4.jpeg';
 import image5 from '../assets/images/foto-5.jpeg';
 import image6 from '../assets/images/foto-6.jpeg';
 import image7 from '../assets/images/foto-7.jpeg';
+import { Heading } from '../components/Heading';
 import style from './MyTrips.module.scss';
 
 const trips = [
@@ -14,7 +15,7 @@ const trips = [
     name: 'Výstup na Teryho chatu',
     image: image1,
     location: 'Vysoké Tatry',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
     extraImages: [image2, image3, image4, image5],
@@ -24,7 +25,7 @@ const trips = [
     name: 'Procházka v Alpách',
     image: image2,
     location: 'La Roche du Sur, Francie',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -33,7 +34,7 @@ const trips = [
     name: 'Hike okolo Teide',
     image: image3,
     location: 'Tenerife, Španělsko',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -51,7 +52,7 @@ const trips = [
     name: 'Západ slunce',
     image: image5,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -60,7 +61,7 @@ const trips = [
     name: 'Okolo sedmi jezer',
     image: image6,
     location: 'Argentina',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -69,7 +70,7 @@ const trips = [
     name: 'Východ slunce',
     image: image7,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapId: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor.',
   },
@@ -77,7 +78,7 @@ const trips = [
 
 export const MyTrips = () => (
   <div className={style.container}>
-    <h2 className={style.title}>Moje trasy</h2>
+    <Heading size="h2">Moje trasy</Heading>
     <TripList trips={trips} />
   </div>
 );

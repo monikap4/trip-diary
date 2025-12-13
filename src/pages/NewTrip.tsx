@@ -6,12 +6,10 @@ export const NewTrip = () => (
         Název trasy:
         <input type="text" placeholder="Např. Šumava loop" />
       </label>
-
       <label>
         Délka trasy (km):
         <input type="number" placeholder="Zadej délku" />
       </label>
-
       <button type="submit">Uložit trasu</button>
     </form>
   </div>

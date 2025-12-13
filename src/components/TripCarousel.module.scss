@@ -13,6 +13,7 @@
   overflow-x: auto;
   gap: 0.6rem;
   padding: 0;
+  padding-bottom: 2rem;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -23,7 +24,7 @@
 
   @media (min-width: $screen-sm-min) {
     gap: 1rem;
-    padding: 2rem 0;
+    padding: 2rem 0 3rem 0;
   }
 }
 

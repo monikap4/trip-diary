@@ -10,6 +10,7 @@ import image6 from '../assets/images/foto-6.jpeg';
 import image7 from '../assets/images/foto-7.jpeg';
 import plusIcon from '../assets/images/plus.svg';
 import { Statistics } from '../components/Statistics/Statistics';
+import { Heading } from '../components/Heading';
 
 const trips = [
   {
@@ -87,9 +88,9 @@ export const Home = () => (
     <Row itemsCenter>
       <Button to="/new" label="Přidat trasu" iconSrc={plusIcon} />
     </Row>
-    <h2>Moje trasy</h2>
+    <Heading size="h2">Moje trasy</Heading>
     <TripCarousel trips={trips} />
-    <h2>Statistiky</h2>
+    <Heading size="h2">Statistiky</Heading>
     <Statistics stats={stats} />
   </div>
 );

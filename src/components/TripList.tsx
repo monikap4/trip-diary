@@ -11,14 +11,14 @@ type TripListProps = {
 export const TripList: React.FC<TripListProps> = ({ trips }) => (
   <ul className={style.tripList}>
     {trips.map(
-      ({ id, image, name, location, description, mapUrl, extraImages }) => (
+      ({ id, image, name, location, description, mapId, extraImages }) => (
         <TripCardHorizontal
           key={id}
           image={image}
           name={name}
           location={location}
           description={description}
-          mapUrl={mapUrl}
+          mapId={mapId}
           extraImages={extraImages}
         />
       ),

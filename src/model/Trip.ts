@@ -4,6 +4,6 @@ export type Trip = {
   image: string;
   location: string;
   description?: string;
-  mapUrl?: string;
+  mapId?: string;
   extraImages?: string[];
 };

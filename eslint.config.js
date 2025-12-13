@@ -175,6 +175,7 @@ export default [
           tsx: 'never',
         },
       ], // Force extensions on imports apart from the JS/TS related ones
+      'react/prop-types': 'off',
     },
   },
 ];
