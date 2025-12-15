@@ -43,7 +43,7 @@ const trips = [
     name: 'San Miguel',
     image: image4,
     location: 'Azory',
-    mapUrl: 'https://mapy.com/s/buzahedana',
+    mapUrl: 'buzahedana',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
