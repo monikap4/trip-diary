@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'Poppins';
-  src: url('../assets/fonts/Poppins-Semibold.woff2') format('woff2');
+  src: url('../assets/fonts/Poppins-Semi-bold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -82,19 +82,7 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
-}
-
-h1 {
-  text-align: center;
-  padding-top: 2rem;
-  font-size: $font-size-lg;
-
-  @media (min-width: $screen-sm-min) {
-    padding-top: 0;
-    font-size: $font-size-xl;
-  }
+  font-weight: 600;
 }
 
 #root,

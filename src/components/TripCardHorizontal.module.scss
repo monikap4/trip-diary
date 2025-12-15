@@ -1,0 +1,241 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 0.7rem;
+  background: $color-white;
+  border-radius: $radius-sm;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    border-color: $color-border-light;
+    box-shadow: 0 8px 18px $color-shadow;
+    transform: translateY(-6px);
+  }
+
+  @media (min-width: $screen-sm-min) {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    border: 1px solid $color-border;
+  }
+}
+
+.imageWrapper,
+.mapWrapper {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  @media (min-width: $screen-sm-min) {
+    height: 260px;
+    width: unset;
+    max-width: 260px;
+    aspect-ratio: auto;
+  }
+}
+
+.mapWrapper {
+  display: none;
+
+  @media (min-width: $screen-sm-min) {
+    display: block;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.mainImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.imageOverlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50%;
+  padding: 1.2rem 6rem 1.2rem 1rem;
+  color: $color-white;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.45) 35%,
+    rgba(0, 0, 0, 0.15) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  @media (min-width: $screen-sm-min) {
+    display: none;
+    padding: 1.2rem 1.5rem 1.2rem 1rem;
+  }
+}
+
+.imageTitle {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.5rem;
+  font-size: $font-size-base;
+  font-weight: 600;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: $font-size-md;
+  }
+}
+
+.imageLocation {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 0.3rem;
+  font-size: $font-size-sm;
+}
+
+.content {
+  display: none;
+  flex: 2;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.6rem;
+
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+  }
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  -webkit-box-orient: vertical;
+  margin-top: 0.4rem;
+  font-size: $font-size-base;
+  line-height: 1.55;
+  color: $color-text-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $color-light;
+  font-weight: 500;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.gallery {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  @media (min-width: $screen-sm-min) {
+    top: auto;
+    bottom: 1rem;
+  }
+}
+
+.galleryMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+
+  @media (min-width: $screen-sm-min) {
+    display: none;
+  }
+}
+
+.galleryDesktop {
+  display: none;
+
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+    gap: 0.6rem;
+  }
+}
+
+.thumb {
+  position: relative;
+  flex: 0 1 auto;
+  width: 15vw;
+  min-width: 40px;
+  max-width: 80px;
+  aspect-ratio: 1 / 1;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: 2px solid $color-white;
+
+  @media (min-width: $screen-sm-min) {
+    width: 80px;
+    min-width: 80px;
+    max-width: none;
+    border-radius: $radius-md;
+  }
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.more {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+  font-weight: 600;
+  font-size: $font-size-md;
+  border-radius: $radius-sm;
+  background: rgba(0, 0, 0, 0.55);
+
+  @media (min-width: $screen-sm-min) {
+    font-size: $font-size-base;
+    border-radius: $radius-md;
+  }
+}
+
+.moreDesktop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border-radius: $radius-md;
+  background: rgba(0, 0, 0, 0.55);
+}

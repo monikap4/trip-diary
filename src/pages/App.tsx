@@ -6,6 +6,7 @@ import { Home } from './Home';
 import { MyTrips } from './MyTrips';
 import { NewTrip } from './NewTrip';
 import { Statistics } from './Statistics';
+import { NotFound } from './NotFound';
 import { MobileNav } from '../components/MobileNav';
 import style from './App.module.scss';
 
@@ -19,6 +20,7 @@ const App = () => (
         <Route path="/trips" element={<MyTrips />} />
         <Route path="/new" element={<NewTrip />} />
         <Route path="/statistics" element={<Statistics />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </main>
     <MobileNav />
