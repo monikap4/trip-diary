@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { supabase } from '../supabaseClient';
+import { fetchTrips } from '../api/tripsApi';
 import { TripList } from '../components/TripList';
 import { Heading } from '../components/Heading';
 import type { Trip } from '../model/Trip';
 import style from './MyTrips.module.scss';
-
-type TripImage = {
-  image_url: string;
-  is_cover: boolean;
-};
-
-const getCoverImage = (images: TripImage[]): string | undefined => {
-  const cover = images.find((img) => img.is_cover);
-
-  return cover?.image_url ?? images[0]?.image_url;
-};
-
-const getExtraImages = (images: TripImage[]): string[] =>
-  images.filter((img) => !img.is_cover).map((img) => img.image_url);
 
 export const MyTrips: React.FC = () => {
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -26,80 +12,34 @@ export const MyTrips: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let isMounted = true;
-
-    const fetchTrips = async () => {
-      const { data, error: supabaseError } = await supabase.from('trips')
-        .select(`
-          id,
-          name,
-          location,
-          description,
-          map_id,
-          trip_images (
-            image_url,
-            is_cover
-          )
-        `);
-
-      if (!isMounted) {
-        return;
-      }
-
-      if (supabaseError) {
+    const loadTrips = async () => {
+      try {
+        const fetchedTrips = await fetchTrips();
+        setTrips(fetchedTrips);
+      } catch {
         setError('Nepodařilo se načíst trasy.');
+      } finally {
         setLoading(false);
-
-        return;
       }
-
-      const mappedTrips: Trip[] = data.map((trip: any) => {
-        const images = trip.trip_images as TripImage[];
-
-        return {
-          id: trip.id,
-          name: trip.name,
-          location: trip.location,
-          description: trip.description,
-          mapId: trip.map_id,
-          image: getCoverImage(images),
-          extraImages: getExtraImages(images),
-        };
-      });
-
-      setTrips(mappedTrips);
-      setLoading(false);
     };
 
-    fetchTrips();
-
-    return () => {
-      isMounted = false;
-    };
+    loadTrips();
   }, []);
 
+  const renderContainer = (content: React.ReactNode) => (
+    <div className={style.container}>
+      <Heading size="h2">Moje trasy</Heading>
+      {content}
+    </div>
+  );
+
   if (loading) {
-    return (
-      <div className={style.container}>
-        <Heading size="h2">Moje trasy</Heading>
-        <p>Načítám trasy…</p>
-      </div>
-    );
+    return renderContainer(<p>Načítám trasy…</p>);
   }
 
   if (error) {
-    return (
-      <div className={style.container}>
-        <Heading size="h2">Moje trasy</Heading>
-        <p>{error}</p>
-      </div>
-    );
+    return renderContainer(<p>{error}</p>);
   }
 
-  return (
-    <div className={style.container}>
-      <Heading size="h2">Moje trasy</Heading>
-      <TripList trips={trips} />
-    </div>
-  );
+  return renderContainer(<TripList trips={trips} />);
 };
