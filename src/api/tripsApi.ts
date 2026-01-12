@@ -25,11 +25,11 @@ export const fetchTrips = async (): Promise<Trip[]> => {
       images.find((img) => img.is_cover)?.image_url ?? images[0]?.image_url;
 
     return {
-      id: String(trip.id),
+      id: trip.id,
       name: trip.name,
       location: trip.location ?? '',
-      description: trip.description ?? undefined,
-      mapId: trip.map_id ?? undefined,
+      description: trip.description ?? '',
+      mapId: trip.map_id ?? '',
       image: coverImage,
       extraImages: images
         .filter((img) => !img.is_cover)

@@ -1,9 +1,13 @@
+import type { Tables } from '../model/database';
+
+type DbTrip = Tables<'trips'>;
+type DbTripImage = Tables<'trip_images'>;
+
+type TripImage = Pick<DbTripImage, 'image_url' | 'is_cover'>;
+
 export type Trip = {
-  id: string;
-  name: string;
-  image?: string;
-  location: string;
-  description?: string;
-  mapId?: string;
-  extraImages?: string[];
-};
+  createdAt?: DbTrip['created_at'];
+  mapId?: DbTrip['map_id'];
+  image?: TripImage['image_url'];
+  extraImages?: TripImage['image_url'][];
+} & Omit<DbTrip, 'created_at' | 'map_id'>;
