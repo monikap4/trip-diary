@@ -14,63 +14,65 @@ import { Heading } from '../components/Heading';
 
 const trips = [
   {
-    id: '1',
+    id: 1,
     name: 'Výstup na Teryho chatu',
     image: image1,
     location: 'Vysoké Tatry',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Procházka v Alpách',
     image: image2,
     location: 'La Roche du Sur, Francie',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '3',
+    id: 3,
     name: 'Hike okolo Teide',
     image: image3,
     location: 'Tenerife, Španělsko',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '4',
+    id: 4,
     name: 'San Miguel',
     image: image4,
     location: 'Azory',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '5',
+    id: 5,
     name: 'Západ slunce',
     image: image5,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '6',
+    id: 6,
     name: 'Okolo sedmi jezer',
     image: image6,
     location: 'Argentina',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
   {
-    id: '7',
+    id: 7,
     name: 'Východ slunce',
     image: image7,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },

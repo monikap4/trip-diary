@@ -47,7 +47,7 @@ export const TripCardHorizontal: React.FC<TripCardProps> = ({
           <div className={style.galleryDesktop}>
             <div className={style.thumb}>
               <img src={extraImages[0]} alt="" className={style.thumbImage} />
-              <div className={style.moreDesktop}>+{extraImages.length + 1}</div>
+              <div className={style.moreDesktop}>+{extraImages.length}</div>
             </div>
           </div>
         </div>
