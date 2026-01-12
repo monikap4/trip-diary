@@ -18,7 +18,7 @@ const trips = [
     name: 'Výstup na Teryho chatu',
     image: image1,
     location: 'Vysoké Tatry',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -27,7 +27,7 @@ const trips = [
     name: 'Procházka v Alpách',
     image: image2,
     location: 'La Roche du Sur, Francie',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -36,7 +36,7 @@ const trips = [
     name: 'Hike okolo Teide',
     image: image3,
     location: 'Tenerife, Španělsko',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -45,7 +45,7 @@ const trips = [
     name: 'San Miguel',
     image: image4,
     location: 'Azory',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -54,7 +54,7 @@ const trips = [
     name: 'Západ slunce',
     image: image5,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -63,7 +63,7 @@ const trips = [
     name: 'Okolo sedmi jezer',
     image: image6,
     location: 'Argentina',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
@@ -72,7 +72,7 @@ const trips = [
     name: 'Východ slunce',
     image: image7,
     location: 'Někde v ČR',
-    mapUrl: 'https://mapy.com/s/nuparozara',
+    mapId: 'https://mapy.com/s/nuparozara',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit egestas tempor. Proin massa sem, tincidunt id bibendum et, luctus ut risus. Pellentesque ac urna vulputate, cursus felis id, ullamcorper augue.',
   },
