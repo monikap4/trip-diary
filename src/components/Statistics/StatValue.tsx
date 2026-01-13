@@ -15,7 +15,7 @@ export const StatValue: React.FC<StatValueProps> = ({
   startAnimation,
 }) => (
   <p className={style.value}>
-    {startAnimation ? <CountUp to={value} /> : 0}
+    {startAnimation ? <CountUp to={value} /> : value}
     {suffix ? <span>&nbsp;{suffix}</span> : null}
   </p>
 );
