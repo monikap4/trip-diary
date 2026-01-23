@@ -2,7 +2,7 @@ import React from 'react';
 
 import { fetchStats } from '../api/fetchStats';
 import { Heading } from '../components/Heading';
-import { StatisticsSection } from '../components/statistics_tmp/StatisticsSection';
+import { StatisticsSection } from '../components/statistics/StatisticsSection';
 import { useFetch } from '../hooks/useFetch';
 import { useStatistics } from '../hooks/useStatistics';
 import type { Stats } from '../model/Stats';
