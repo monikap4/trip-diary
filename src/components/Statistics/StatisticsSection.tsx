@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import type { StatItem } from '../../model/StatItem';
+import type { StatItem } from '../../model/Stats';
 import { StatValue } from './StatValue';
 import style from './StatisticsSection.module.scss';
 

@@ -1,49 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { fetchStats } from '../api/statsApi';
+import { fetchStats } from '../api/fetchStats';
 import { Heading } from '../components/Heading';
-import { buildStatistics } from '../model/statisticsSelectors';
-import { StatisticsSection } from '../components/Statistics/StatisticsSection';
-import type { StatItem } from '../model/StatItem';
-import type { StatsDb } from '../model/StatsDb';
+import { StatisticsSection } from '../components/statistics/StatisticsSection';
+import { useFetch } from '../hooks/useFetch';
+import { useStatistics } from '../hooks/useStatistics';
+import type { Stats } from '../model/Stats';
 import style from './TripStatistics.module.scss';
 
 export const TripStatistics: React.FC = () => {
-  const [stats, setStats] = useState<StatsDb[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data: stats, loading, error } = useFetch<Stats[]>(fetchStats);
 
-  useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const fetchedStats = await fetchStats();
-        setStats(fetchedStats);
-      } catch {
-        setError('Nepodařilo se načíst statistiky.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const totalStats = useStatistics(stats ?? []);
 
-    loadStats();
-  }, []);
-
-  const totalStats: StatItem[] = buildStatistics(stats);
-
-  const renderContainer = (content: React.ReactNode) => (
+  return (
     <div className={style.container}>
-      <Heading size="h2">Statistiky</Heading>
-      {content}
+      <Heading size="h1">Statistiky</Heading>
+
+      {loading && <p>Načítám statistiky…</p>}
+
+      {!loading && error && <p>{error}</p>}
+
+      {!loading && !error && <StatisticsSection stats={totalStats} />}
     </div>
   );
-
-  if (loading) {
-    return renderContainer(<p>Načítám statistiky…</p>);
-  }
-
-  if (error) {
-    return renderContainer(<p>{error}</p>);
-  }
-
-  return renderContainer(<StatisticsSection stats={totalStats} />);
 };

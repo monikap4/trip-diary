@@ -1,45 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { TripCarousel } from '../components/TripCarousel';
 import { Button } from '../components/Button';
 import { Row } from '../components/Row';
-import { StatisticsSection } from '../components/Statistics/StatisticsSection';
+import { StatisticsSection } from '../components/statistics/StatisticsSection';
 import { Heading } from '../components/Heading';
-import { fetchTrips } from '../api/tripsApi';
-import { fetchStats } from '../api/statsApi';
-import { buildStatistics } from '../model/statisticsSelectors';
+import { fetchTrips } from '../api/fetchTrips';
+import { useFetch } from '../hooks/useFetch';
+import { fetchStats } from '../api/fetchStats';
+import { useStatistics } from '../hooks/useStatistics';
 import type { Trip } from '../model/Trip';
-import type { StatsDb } from '../model/StatsDb';
-import type { StatItem } from '../model/StatItem';
+import type { Stats } from '../model/Stats';
 import plusIcon from '../assets/images/plus.svg';
 
 export const Home: React.FC = () => {
-  const [trips, setTrips] = useState<Trip[]>([]);
-  const [stats, setStats] = useState<StatsDb[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    data: trips,
+    loading: tripsLoading,
+    error: tripsError,
+  } = useFetch<Trip[]>(fetchTrips);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const [fetchedTrips, fetchedStats] = await Promise.all([
-          fetchTrips(),
-          fetchStats(),
-        ]);
+  const {
+    data: stats,
+    loading: statsLoading,
+    error: statsError,
+  } = useFetch<Stats[]>(fetchStats);
 
-        setTrips(fetchedTrips);
-        setStats(fetchedStats);
-      } catch {
-        setError('Nepodařilo se načíst data.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loading = tripsLoading || statsLoading;
+  const error = tripsError || statsError;
 
-    loadData();
-  }, []);
-
-  const totalStats: StatItem[] = buildStatistics(stats);
+  const tripsForRender = trips ?? [];
+  const totalStats = useStatistics(stats ?? []);
 
   if (loading) {
     return <p>Načítám data…</p>;
@@ -56,7 +47,7 @@ export const Home: React.FC = () => {
       </Row>
 
       <Heading size="h2">Moje trasy</Heading>
-      <TripCarousel trips={trips} />
+      <TripCarousel trips={tripsForRender} />
 
       <Heading size="h2">Statistiky</Heading>
       <StatisticsSection stats={totalStats} isHomepage />
