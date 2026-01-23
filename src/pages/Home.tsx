@@ -3,7 +3,7 @@ import React from 'react';
 import { TripCarousel } from '../components/TripCarousel';
 import { Button } from '../components/Button';
 import { Row } from '../components/Row';
-import { StatisticsSection } from '../components/statistics/StatisticsSection';
+import { StatisticsSection } from '../components/statistics_tmp/StatisticsSection';
 import { Heading } from '../components/Heading';
 import { fetchTrips } from '../api/fetchTrips';
 import { useFetch } from '../hooks/useFetch';
