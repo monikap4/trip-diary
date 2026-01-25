@@ -1,45 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-import { fetchTrips } from '../api/tripsApi';
+import { fetchTrips } from '../api/fetchTrips';
 import { TripList } from '../components/TripList';
 import { Heading } from '../components/Heading';
 import type { Trip } from '../model/Trip';
+import { useFetch } from '../hooks/useFetch';
 import style from './MyTrips.module.scss';
 
 export const MyTrips: React.FC = () => {
-  const [trips, setTrips] = useState<Trip[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { data: trips, loading, error } = useFetch<Trip[]>(fetchTrips);
+  const tripsForRender = trips ?? [];
 
-  useEffect(() => {
-    const loadTrips = async () => {
-      try {
-        const fetchedTrips = await fetchTrips();
-        setTrips(fetchedTrips);
-      } catch {
-        setError('Nepodařilo se načíst trasy.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadTrips();
-  }, []);
-
-  const renderContainer = (content: React.ReactNode) => (
+  return (
     <div className={style.container}>
-      <Heading size="h2">Moje trasy</Heading>
-      {content}
+      <Heading size="h1">Moje Trasy</Heading>
+      {loading && <p>Načítám trasy…</p>}
+
+      {!loading && error && <p>{error}</p>}
+
+      {!loading && !error && <TripList trips={tripsForRender} />}
     </div>
   );
-
-  if (loading) {
-    return renderContainer(<p>Načítám trasy…</p>);
-  }
-
-  if (error) {
-    return renderContainer(<p>{error}</p>);
-  }
-
-  return renderContainer(<TripList trips={trips} />);
 };

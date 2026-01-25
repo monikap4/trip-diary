@@ -3,13 +3,13 @@
   text-align: center;
 
   @media (min-width: $screen-sm-min) {
-    padding: 2rem 5.125rem;
+    padding: 2rem 5.1rem;
   }
 }
 
 .grid {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
   width: 100%;

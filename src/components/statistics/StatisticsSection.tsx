@@ -1,20 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import type { StatItem } from '../../model/Stats';
 import { StatValue } from './StatValue';
-import style from './Statistics.module.scss';
-
-type StatItem = {
-  id: string;
-  label: string;
-  value: number;
-  suffix?: string;
-};
+import style from './StatisticsSection.module.scss';
 
 type StatsSectionProps = {
   stats: StatItem[];
+  isHomepage?: boolean;
 };
 
-export const Statistics: React.FC<StatsSectionProps> = ({ stats }) => {
+export const StatisticsSection: React.FC<StatsSectionProps> = ({
+  stats,
+  isHomepage,
+}) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [startAnimation, setStartAnimation] = useState(false);
 
@@ -44,16 +42,18 @@ export const Statistics: React.FC<StatsSectionProps> = ({ stats }) => {
     };
   }, []);
 
+  const visibleStats = isHomepage ? stats.slice(0, 4) : stats;
+
   return (
     <div ref={sectionRef} className={style.statsSection}>
       <ul className={style.grid}>
-        {stats.map((item) => (
+        {visibleStats.map((item) => (
           <li key={item.id} className={style.card}>
             <p className={style.label}>{item.label}</p>
             <StatValue
               value={item.value}
               suffix={item.suffix}
-              startAnimation={startAnimation}
+              startAnimation={startAnimation && !!isHomepage}
             />
           </li>
         ))}
