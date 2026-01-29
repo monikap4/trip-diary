@@ -1,0 +1,19 @@
+.picker {
+  width: 100%;
+  padding: 2rem 1rem;
+  font-size: $font-size-base;
+  border-radius: 0.75rem;
+  border: 1px solid $color-border-light;
+  color: $color-text;
+  background: $color-input-bg;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.preview {
+  height: 56px;
+  object-fit: cover;
+  border-radius: 12px;
+}
