@@ -1,23 +1,29 @@
-import { useId } from 'react';
-import type { ReactNode } from 'react';
+import React, { useMemo, useId } from 'react';
 
-import style from './FormField.module.scss';
+import { FormFieldContext } from './FormFieldContext';
 
-type FormFieldProps = {
+type Props = {
   label: string;
-  children: (inputId: string) => ReactNode;
+  children: React.ReactNode;
 };
 
-export const FormField = ({ label, children }: FormFieldProps) => {
+export const FormField: React.FC<Props> = ({ label, children }) => {
   const inputId = useId();
 
-  return (
-    <div className={style.wrapper}>
-      <label htmlFor={inputId} className={style.label}>
-        {label}
-      </label>
+  const value = useMemo(
+    () => ({
+      label,
+      inputId,
+    }),
+    [label, inputId],
+  );
 
-      {children(inputId)}
-    </div>
+  return (
+    <FormFieldContext.Provider value={value}>
+      <div>
+        <label htmlFor={inputId}>{label}</label>
+        {children}
+      </div>
+    </FormFieldContext.Provider>
   );
 };

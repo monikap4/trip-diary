@@ -6,23 +6,21 @@ import style from './MapPicker.module.scss';
 type MapPickerProps = {
   label: string;
   mapPreviewUrl?: string;
-  onPick: () => void;
+  handlePick: () => void;
 };
 
 export const MapPicker: React.FC<MapPickerProps> = ({
   label,
   mapPreviewUrl,
-  onPick,
+  handlePick,
 }) => (
   <FormField label={label}>
-    {() =>
-      mapPreviewUrl ? (
-        <img src={mapPreviewUrl} alt="Vybraná mapa" className={style.preview} />
-      ) : (
-        <button type="button" className={style.picker} onClick={onPick}>
-          +
-        </button>
-      )
-    }
+    {mapPreviewUrl ? (
+      <img src={mapPreviewUrl} alt="Vybraná mapa" className={style.preview} />
+    ) : (
+      <button type="button" className={style.picker} onClick={handlePick}>
+        +
+      </button>
+    )}
   </FormField>
 );

@@ -32,7 +32,7 @@ export const NewTripForm = () => {
 
       <div className={style.row}>
         <MediaPicker label="Přidat fotky" />
-        <MapPicker label="Přidat mapu" onPick={() => {}} />
+        <MapPicker label="Přidat mapu" handlePick={() => {}} />
       </div>
 
       <div className={style.row}>
