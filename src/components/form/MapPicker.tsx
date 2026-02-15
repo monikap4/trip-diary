@@ -15,12 +15,12 @@ export const MapPicker: React.FC<MapPickerProps> = ({
   handlePick,
 }) => (
   <FormField label={label}>
-    {mapPreviewUrl ? (
-      <img src={mapPreviewUrl} alt="Vybraná mapa" className={style.preview} />
-    ) : (
-      <button type="button" className={style.picker} onClick={handlePick}>
-        +
-      </button>
-    )}
+    <button type="button" className={style.picker} onClick={handlePick}>
+      {mapPreviewUrl ? (
+        <img src={mapPreviewUrl} alt="Vybraná mapa" className={style.preview} />
+      ) : (
+        '+'
+      )}
+    </button>
   </FormField>
 );

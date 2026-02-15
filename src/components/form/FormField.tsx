@@ -1,6 +1,7 @@
 import React, { useMemo, useId } from 'react';
 
 import { FormFieldContext } from './FormFieldContext';
+import style from './FormField.module.scss';
 
 type Props = {
   label: string;
@@ -20,8 +21,10 @@ export const FormField: React.FC<Props> = ({ label, children }) => {
 
   return (
     <FormFieldContext.Provider value={value}>
-      <div>
-        <label htmlFor={inputId}>{label}</label>
+      <div className={style.wrapper}>
+        <label className={style.label} htmlFor={inputId}>
+          {label}
+        </label>
         {children}
       </div>
     </FormFieldContext.Provider>

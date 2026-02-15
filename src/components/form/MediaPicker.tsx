@@ -6,9 +6,12 @@ import style from './MediaPicker.module.scss';
 
 type MediaPickerProps = {
   label: string;
+  onChange: (files: File[]) => void;
 };
 
-const MediaPickerControl: React.FC = () => {
+const MediaPickerControl: React.FC<{ onChange: (files: File[]) => void }> = ({
+  onChange,
+}) => {
   const { inputId } = useFormField();
   const [files, setFiles] = useState<File[]>([]);
 
@@ -16,7 +19,10 @@ const MediaPickerControl: React.FC = () => {
     if (!fileList) {
       return;
     }
-    setFiles((prev) => [...prev, ...Array.from(fileList)]);
+
+    const newFiles = [...files, ...Array.from(fileList)];
+    setFiles(newFiles);
+    onChange(newFiles);
   };
 
   return (
@@ -53,8 +59,11 @@ const MediaPickerControl: React.FC = () => {
   );
 };
 
-export const MediaPicker: React.FC<MediaPickerProps> = ({ label }) => (
+export const MediaPicker: React.FC<MediaPickerProps> = ({
+  label,
+  onChange,
+}) => (
   <FormField label={label}>
-    <MediaPickerControl />
+    <MediaPickerControl onChange={onChange} />
   </FormField>
 );
