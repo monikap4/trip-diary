@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
+import { useState, type FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { supabase } from '../api/supabaseClient';
 import { InputField } from './form/InputField';
@@ -12,7 +14,9 @@ import { Button } from './Button';
 import mapPreview from '../assets/images/mapycz.jpeg';
 import style from './NewTripForm.module.scss';
 
-export const NewTripForm = () => {
+export const NewTripForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [distance, setDistance] = useState('');
@@ -31,9 +35,11 @@ export const NewTripForm = () => {
   const [mapId, setMapId] = useState('');
   const [tempMapId, setTempMapId] = useState('');
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setError(null);
 
     const { data: trip, error: tripError } = await supabase
       .from('trips')
@@ -49,7 +55,8 @@ export const NewTripForm = () => {
       .single();
 
     if (tripError) {
-      alert('Nepodařilo se uložit trasu');
+      setError('Nepodařilo se uložit trasu');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       return;
     }
@@ -67,13 +74,15 @@ export const NewTripForm = () => {
       ]);
 
     if (statsError) {
-      alert('Trasa se uložila, ale statistiky ne');
+      setError('Nepodařilo se uložit statistiky');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       return;
     }
 
-    for (let i = 0; i < images.length; i++) {
-      const file = images[i];
+    let isFirst = true;
+
+    for (const file of images) {
       const filePath = `${trip.id}/${Date.now()}-${file.name}`;
 
       const { error: uploadError } = await supabase.storage
@@ -84,24 +93,27 @@ export const NewTripForm = () => {
         continue;
       }
 
-      const { data } = supabase.storage.from('images').getPublicUrl(filePath);
-      const publicUrl = data.publicUrl;
+      const { publicUrl } = supabase.storage
+        .from('images')
+        .getPublicUrl(filePath).data;
 
       await supabase.from('trip_images').insert([
         {
           trip_id: trip.id,
           image_url: publicUrl,
-          is_cover: i === 0,
+          is_cover: isFirst,
         },
       ]);
+
+      isFirst = false;
     }
 
-    alert('Trasa úspěšně vytvořena!');
-    location.reload();
+    navigate('/trips');
   };
 
   return (
     <>
+      {error && <p className={style.error}>{error}</p>}
       <form className={style.form} onSubmit={handleSubmit}>
         <InputField label="Název" value={name} onChange={setName} />
         <DateInput label="Datum" value={date} onChange={setDate} />

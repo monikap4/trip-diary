@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { FormField } from './FormField';
 import { Input } from './FormInputs';
-import { FormFieldContext } from './FormFieldContext';
+import { useFormField } from '../../hooks/useFormField';
 
 type DateInputProps = {
   label: string;
@@ -14,11 +14,7 @@ const DateInputInner: React.FC<{
   value?: string;
   onChange?: (value: string) => void;
 }> = ({ value, onChange }) => {
-  const formField = useContext(FormFieldContext);
-
-  if (!formField) {
-    return null;
-  }
+  const formField = useFormField();
 
   return (
     <Input

@@ -120,6 +120,12 @@
   background: #f3f3f3;
 
   &:hover {
-    background: #e8e8e8;
+    background: $color-secondary;
   }
+}
+
+.error {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: $color-error;
 }
