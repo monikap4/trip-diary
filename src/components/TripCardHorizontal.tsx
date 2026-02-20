@@ -3,6 +3,7 @@ import React from 'react';
 import type { Trip } from '../model/Trip';
 import iconPin from '../assets/images/map-pin.svg';
 import { Heading } from './Heading';
+import mapImg from '../assets/images/mapycz.jpeg';
 import style from './TripCardHorizontal.module.scss';
 
 export type TripCardProps = Pick<
@@ -64,14 +65,15 @@ export const TripCardHorizontal: React.FC<TripCardProps> = ({
       <p className={style.description}>{description}</p>
     </div>
     <div className={style.mapWrapper}>
-      <iframe
-        title={`Mapa: ${name}`}
-        src={`https://mapy.com/s/${mapId}?mode=frame`}
-        height="260"
-        sandbox="allow-scripts allow-same-origin"
-        referrerPolicy="no-referrer"
-        loading="lazy"
-      />
+      <a
+        href={`https://mapy.com/s/${mapId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={style.mapPreview}
+      >
+        <img className={style.mapImg} src={mapImg} alt="Mapa náhled" />
+        <span className={style.mapOverlay}>Zobrazit v Mapy.cz</span>
+      </a>
     </div>
   </li>
 );

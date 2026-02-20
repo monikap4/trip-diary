@@ -16,7 +16,7 @@ type LinkButtonProps = BaseProps & {
 };
 
 type ActionButtonProps = BaseProps & {
-  onClick: () => void;
+  onClick?: () => void;
   to?: never;
 };
 

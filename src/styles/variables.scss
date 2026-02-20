@@ -2,7 +2,8 @@
 $color-primary: #000;
 $color-secondary: #d2d7dc;
 $color-light: #a6a6a6;
-$color-accent: #38b2ac;
+$color-accent: #4e7ec5;
+$color-accent-hover: #315c9d;
 $color-text: #000;
 $color-text-secondary: #5e5e5e;
 $color-text-light: #718096;
@@ -12,6 +13,7 @@ $color-border-light: rgba(0, 0, 0, 0.04);
 $color-shadow: rgba(0, 0, 0, 0.12);
 $color-shadow-light: rgba(7, 22, 48, 0.06);
 $color-icon-hover: #094ff1;
+$color-error: #c2394d;
 
 // Typography
 $font-primary: 'Poppins', sans-serif;
@@ -29,3 +31,8 @@ $line-height-base: 1.6;
 $radius-sm: 8px;
 $radius-md: 16px;
 $radius-lg: 24px;
+
+//Form
+$color-input-bg: #fafafa;
+$color-input-border: #93c5fd;
+$color-input-shadow: rgba(59, 130, 246, 0.15);

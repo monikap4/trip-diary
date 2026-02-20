@@ -1,0 +1,25 @@
+.input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: $font-size-base;
+  border-radius: $radius-sm;
+  border: 1px solid $color-border-light;
+  color: $color-text;
+  background: $color-input-bg;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-input-border;
+    background: $color-white;
+    box-shadow: 0 0 0 3px $color-input-shadow;
+  }
+}
+
+textarea.input {
+  min-height: 120px;
+  resize: vertical;
+}

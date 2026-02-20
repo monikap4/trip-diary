@@ -1,16 +1,9 @@
+import { NewTripForm } from '../components/NewTripForm';
+import { Heading } from '../components/Heading';
+
 export const NewTrip = () => (
-  <div>
-    <h2>Přidat novou trasu</h2>
-    <form>
-      <label>
-        Název trasy:
-        <input type="text" placeholder="Např. Šumava loop" />
-      </label>
-      <label>
-        Délka trasy (km):
-        <input type="number" placeholder="Zadej délku" />
-      </label>
-      <button type="submit">Uložit trasu</button>
-    </form>
-  </div>
+  <>
+    <Heading size="h1">Přidat trasu</Heading>
+    <NewTripForm />
+  </>
 );

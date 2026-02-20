@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-secondary;
+}
