@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { supabase } from '../api/supabaseClient';
 import { InputField } from './form/InputField';
 import { DateInput } from './form/DateInput';
 import { MediaPicker } from './form/MediaPicker';
@@ -12,6 +11,7 @@ import { SelectField } from './form/SelectField';
 import { TextAreaField } from './form/TextAreaField';
 import { Button } from './Button';
 import mapPreview from '../assets/images/mapycz.jpeg';
+import { createTrip } from '../api/createTrip';
 import style from './NewTripForm.module.scss';
 
 export const NewTripForm: React.FC = () => {
@@ -41,74 +41,24 @@ export const NewTripForm: React.FC = () => {
     event.preventDefault();
     setError(null);
 
-    const { data: trip, error: tripError } = await supabase
-      .from('trips')
-      .insert([
-        {
-          name,
-          location: `${region}, ${country}`,
-          description,
-          map_id: mapId || null,
-        },
-      ])
-      .select()
-      .single();
+    try {
+      await createTrip({
+        name,
+        region,
+        country,
+        description,
+        mapId,
+        distance,
+        elevation,
+        summits,
+        images,
+      });
 
-    if (tripError) {
-      setError('Nepodařilo se uložit trasu');
+      navigate('/trips');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Nepodařilo se uložit trasu');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      return;
     }
-
-    const { error: statsError } = await supabase
-      .from('trip_statistics')
-      .insert([
-        {
-          trip_id: trip.id,
-          distance: Number(distance) || 0,
-          elevation: Number(elevation) || 0,
-          summits: Number(summits) || 0,
-          highest_point: 0,
-        },
-      ]);
-
-    if (statsError) {
-      setError('Nepodařilo se uložit statistiky');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      return;
-    }
-
-    let isFirst = true;
-
-    for (const file of images) {
-      const filePath = `${trip.id}/${Date.now()}-${file.name}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from('images')
-        .upload(filePath, file);
-
-      if (uploadError) {
-        continue;
-      }
-
-      const { publicUrl } = supabase.storage
-        .from('images')
-        .getPublicUrl(filePath).data;
-
-      await supabase.from('trip_images').insert([
-        {
-          trip_id: trip.id,
-          image_url: publicUrl,
-          is_cover: isFirst,
-        },
-      ]);
-
-      isFirst = false;
-    }
-
-    navigate('/trips');
   };
 
   return (

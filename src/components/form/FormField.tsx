@@ -3,12 +3,12 @@ import React, { useMemo, useId } from 'react';
 import { FormFieldContext } from './FormFieldContext';
 import style from './FormField.module.scss';
 
-type Props = {
+type FormFieldProps = {
   label: string;
   children: React.ReactNode;
 };
 
-export const FormField: React.FC<Props> = ({ label, children }) => {
+export const FormField: React.FC<FormFieldProps> = ({ label, children }) => {
   const inputId = useId();
 
   const value = useMemo(

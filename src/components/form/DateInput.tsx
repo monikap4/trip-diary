@@ -4,16 +4,15 @@ import { FormField } from './FormField';
 import { Input } from './FormInputs';
 import { useFormField } from '../../hooks/useFormField';
 
-type DateInputProps = {
-  label: string;
+type DateInputControlProps = {
   value?: string;
   onChange?: (value: string) => void;
 };
 
-const DateInputInner: React.FC<{
-  value?: string;
-  onChange?: (value: string) => void;
-}> = ({ value, onChange }) => {
+const DateInputControl: React.FC<DateInputControlProps> = ({
+  value,
+  onChange,
+}) => {
   const formField = useFormField();
 
   return (
@@ -26,12 +25,18 @@ const DateInputInner: React.FC<{
   );
 };
 
+type DateInputProps = {
+  label: string;
+  value?: string;
+  onChange?: (value: string) => void;
+};
+
 export const DateInput: React.FC<DateInputProps> = ({
   label,
   value,
   onChange,
 }) => (
   <FormField label={label}>
-    <DateInputInner value={value} onChange={onChange} />
+    <DateInputControl value={value} onChange={onChange} />
   </FormField>
 );
