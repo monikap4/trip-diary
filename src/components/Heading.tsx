@@ -9,6 +9,7 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   size: SupportedHeadingType;
   element?: SupportedHeadingType | 'div';
   variant?: 'medium';
+  align?: 'left' | 'center' | 'right';
 };
 
 export const Heading: React.FC<HeadingProps> = ({
@@ -17,6 +18,7 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   className,
   variant = '',
+  align,
   ...headingAttributes
 }) => {
   const CustomTag = element;
@@ -32,6 +34,9 @@ export const Heading: React.FC<HeadingProps> = ({
           [style.h5]: size === 'h5',
           [style.h6]: size === 'h6',
           [style.medium]: variant === 'medium',
+          [style.left]: align === 'left',
+          [style.center]: align === 'center',
+          [style.right]: align === 'right',
         },
         style.baseHeading,
         className,

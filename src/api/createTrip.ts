@@ -10,6 +10,8 @@ type CreateTripPayload = {
   elevation?: string;
   summits?: string;
   images: File[];
+  startTime?: string;
+  endTime?: string;
 };
 
 export async function createTrip({
@@ -22,6 +24,8 @@ export async function createTrip({
   elevation,
   summits,
   images,
+  startTime,
+  endTime,
 }: CreateTripPayload) {
   const { data: trip, error: tripError } = await supabase
     .from('trips')
@@ -47,6 +51,8 @@ export async function createTrip({
       elevation: Number(elevation) || 0,
       summits: Number(summits) || 0,
       highest_point: 0,
+      start_time: startTime || null,
+      end_time: endTime || null,
     },
   ]);
 

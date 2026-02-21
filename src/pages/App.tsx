@@ -8,6 +8,7 @@ import { NewTrip } from './NewTrip';
 import { TripStatistics } from './TripStatistics';
 import { NotFound } from './NotFound';
 import { MobileNav } from '../components/MobileNav';
+import { TripDetailView } from './TripDetailView';
 import style from './App.module.scss';
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
         <Route path="/trips" element={<MyTrips />} />
         <Route path="/new" element={<NewTrip />} />
         <Route path="/statistics" element={<TripStatistics />} />
+        <Route path="/trip/:id" element={<TripDetailView />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

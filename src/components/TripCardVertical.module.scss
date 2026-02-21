@@ -1,9 +1,12 @@
 .card {
+  display: block;
   flex: 0 0 auto;
   width: 85vw;
   max-width: 200px;
   border-radius: $radius-sm;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
   background: $color-white;
   border: 1px solid $color-border;
 

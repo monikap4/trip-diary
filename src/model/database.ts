@@ -51,8 +51,10 @@ export type Database = {
           created_at: string;
           distance: number | null;
           elevation: number | null;
+          end_time: string | null;
           highest_point: number | null;
           id: number;
+          start_time: string | null;
           summits: number | null;
           trip_id: number | null;
         };
@@ -60,8 +62,10 @@ export type Database = {
           created_at?: string;
           distance?: number | null;
           elevation?: number | null;
+          end_time?: string | null;
           highest_point?: number | null;
           id?: number;
+          start_time?: string | null;
           summits?: number | null;
           trip_id?: number | null;
         };
@@ -69,8 +73,10 @@ export type Database = {
           created_at?: string;
           distance?: number | null;
           elevation?: number | null;
+          end_time?: string | null;
           highest_point?: number | null;
           id?: number;
+          start_time?: string | null;
           summits?: number | null;
           trip_id?: number | null;
         };

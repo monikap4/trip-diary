@@ -13,6 +13,7 @@ export const TripList: React.FC<TripListProps> = ({ trips }) => (
     {trips.map(
       ({ id, image, name, location, description, mapId, extraImages }) => (
         <TripCardHorizontal
+          id={id}
           key={id}
           image={image}
           name={name}
