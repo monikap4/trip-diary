@@ -7,7 +7,6 @@ import { DateInput } from './form/DateInput';
 import { MediaPicker } from './form/MediaPicker';
 import { MapPicker } from './form/MapPicker';
 import { TimeInput } from './form/TimeInput';
-import { SelectField } from './form/SelectField';
 import { TextAreaField } from './form/TextAreaField';
 import { Button } from './Button';
 import mapPreview from '../assets/images/mapycz.jpeg';
@@ -25,11 +24,7 @@ export const NewTripForm: React.FC = () => {
   const [endTime, setEndTime] = useState('');
   const [country, setCountry] = useState('');
   const [region, setRegion] = useState('');
-  const [summits, setSummits] = useState('');
-  const [companions, setCompanions] = useState('');
   const [description, setDescription] = useState('');
-  const [tripType, setTripType] = useState('');
-  const [weather, setWeather] = useState('');
   const [images, setImages] = useState<File[]>([]);
 
   const [mapId, setMapId] = useState('');
@@ -42,7 +37,7 @@ export const NewTripForm: React.FC = () => {
     setError(null);
 
     try {
-      await createTrip({
+      const trip = await createTrip({
         name,
         region,
         country,
@@ -50,11 +45,12 @@ export const NewTripForm: React.FC = () => {
         mapId,
         distance,
         elevation,
-        summits,
         images,
+        startTime,
+        endTime,
       });
 
-      navigate('/trips');
+      navigate(`/trip/${trip.id}`);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Nepodařilo se uložit trasu');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -111,33 +107,6 @@ export const NewTripForm: React.FC = () => {
           label="Pohoří / region"
           value={region}
           onChange={setRegion}
-        />
-        <InputField label="Vrchol/y" value={summits} onChange={setSummits} />
-
-        <SelectField
-          label="Typ trasy"
-          value={tripType}
-          onChange={setTripType}
-          options={[
-            { label: 'Turistika', value: 'hike' },
-            { label: 'Skialpy', value: 'skialp' },
-          ]}
-        />
-
-        <SelectField
-          label="Počasí"
-          value={weather}
-          onChange={setWeather}
-          options={[
-            { label: 'Slunečno', value: 'sunny' },
-            { label: 'Déšť', value: 'rain' },
-          ]}
-        />
-
-        <InputField
-          label="Doprovod"
-          value={companions}
-          onChange={setCompanions}
         />
 
         <TextAreaField
