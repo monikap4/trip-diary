@@ -79,7 +79,7 @@ export const TripDetail: React.FC<TripDetailProps> = ({ tripId }) => {
   const remaining = extraImages.length - 3;
 
   return (
-    <div className={style.wrapper}>
+    <>
       <div className={style.hero}>
         {coverImage && (
           <img src={coverImage} alt={trip.name} className={style.mainImage} />
@@ -116,32 +116,34 @@ export const TripDetail: React.FC<TripDetailProps> = ({ tripId }) => {
         )}
       </div>
 
-      <StatisticsSection stats={statsItems} noPadding />
+      <div className={style.wrapper}>
+        <StatisticsSection stats={statsItems} noPadding />
 
-      <div className={style.section}>
-        <Heading size="h3" variant="medium">
-          Popis trasy
-        </Heading>
-        <p className={style.description}>{trip.description ?? ''}</p>
-      </div>
-
-      {trip.map_id && (
         <div className={style.section}>
           <Heading size="h3" variant="medium">
-            Mapa trasy
+            Popis trasy
           </Heading>
-
-          <a
-            href={`https://mapy.com/s/${trip.map_id}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={style.mapPreview}
-          >
-            <img className={style.mapImg} src={mapImg} alt="Mapa náhled" />
-            <span className={style.mapButton}>Zobrazit v Mapy.cz</span>
-          </a>
+          <p className={style.description}>{trip.description ?? ''}</p>
         </div>
-      )}
-    </div>
+
+        {trip.map_id && (
+          <div className={style.section}>
+            <Heading size="h3" variant="medium">
+              Mapa trasy
+            </Heading>
+
+            <a
+              href={`https://mapy.com/s/${trip.map_id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.mapPreview}
+            >
+              <img className={style.mapImg} src={mapImg} alt="Mapa náhled" />
+              <span className={style.mapButton}>Zobrazit v Mapy.cz</span>
+            </a>
+          </div>
+        )}
+      </div>
+    </>
   );
 };

@@ -44,7 +44,7 @@ export const TripCarousel: React.FC<TripCarouselProps> = ({ trips }) => {
             key={id}
             image={image}
             name={name}
-            id={id} // 👈 přidej
+            id={id}
             location={location}
           />
         ))}
